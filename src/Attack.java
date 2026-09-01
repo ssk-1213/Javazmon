@@ -92,8 +92,7 @@ public class Attack {
                 IO.println("属性相性：普通");
             }
 
-            IO.println("コンボ補正：" + comboRate
-            );
+            IO.println("コンボ補正：" + comboRate);
 
             IO.println("→ " + damage + "ダメージ！");
 
