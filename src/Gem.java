@@ -25,9 +25,7 @@ public class Gem {
         };
 
         for (int i = 0; i < gems.length; i++) {
-
             int index = random.nextInt(elements.length);
-
             gems[i] = elements[index];
         }
     }
@@ -36,16 +34,13 @@ public class Gem {
     public static void printGems() {
 
         for (int i = 0; i < gems.length; i++) {
-
             char label = (char) ('A' + i);
-
             IO.print(label + " ");
         }
 
         IO.println();
 
         for (int i = 0; i < gems.length; i++) {
-
             IO.print("\u001B[3" + gems[i].getCode() + "m" + gems[i].getSymbol() + "\u001B[0m ");
         }
 
@@ -58,13 +53,10 @@ public class Gem {
         if (from < to) {
 
             for (int i = from; i < to; i++) {
-
                 printGems();
-
+                
                 allElement.Element temp = gems[i];
-
                 gems[i] = gems[i + 1];
-
                 gems[i + 1] = temp;
 
                 IO.println();
@@ -73,13 +65,10 @@ public class Gem {
         } else if (from > to) {
 
             for (int i = from; i > to; i--) {
-
                 printGems();
 
                 allElement.Element temp = gems[i];
-
                 gems[i] = gems[i - 1];
-
                 gems[i - 1] = temp;
 
                 IO.println();
@@ -105,44 +94,34 @@ public class Gem {
                 if (count >= 3 && gems[i - 1] != allElement.Element.EMPTY) {
 
                     allElement.Element element = gems[i - 1];
-
                     matchedElements[matchedCount] = element;
-
                     matchedGemCounts[matchedCount] = count;
-
                     matchedCount++;
-
                     removedCount[element.getCode()] += count;
 
                     for (int j = i - count; j < i; j++) {
-
                         gems[j] = allElement.Element.EMPTY;
                     }
                 }
-
                 count = 1;
-
             } else {
-
                 count++;
             }
         }
-
         return matchedCount;
     }
 
     public static allElement.Element
     getMatchedElement(int index) {
-
+        
         return matchedElements[index];
     }
 
     public static int getMatchedGemCount(int index) {
-
+        
         return matchedGemCounts[index];
     }
-
-
+    
     public static void dropGems() {
 
         while (true) {
@@ -152,22 +131,17 @@ public class Gem {
             for (int i = 0; i < gems.length; i++) {
 
                 if (gems[i] == allElement.Element.EMPTY) {
-
                     int rightEmpty = i;
 
                     while (rightEmpty + 1 < gems.length && gems[rightEmpty + 1] == allElement.Element.EMPTY) {
-
                         rightEmpty++;
                     }
 
                     if (rightEmpty + 1 < gems.length && gems[rightEmpty + 1] != allElement.Element.EMPTY) {
-
                         allElement.Element temp = gems[rightEmpty];
-
                         gems[rightEmpty] = gems[rightEmpty + 1];
-
                         gems[rightEmpty + 1] = temp;
-
+                        
                         moved = true;
                     }
 
@@ -204,10 +178,7 @@ public class Gem {
         for (int i = 0; i < gems.length; i++) {
 
             if (gems[i] == allElement.Element.EMPTY) {
-
-                int index = random.nextInt(
-                                elements.length);
-
+                int index = random.nextInt(elements.length);
                 gems[i] = elements[index];
             }
         }
